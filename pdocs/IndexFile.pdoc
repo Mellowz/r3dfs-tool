@@ -1,0 +1,25 @@
+Arctos Binary Index File
+{
+	[DWORD] Magic
+	[DWORD] Version?
+	[DWORD] unknown (Flags?)
+	[DWORD] NumFiles
+	[DWORD] dataLen
+	[DWORD] unknown
+	zlib_compressed (dataLen [BYTE]s)
+	{
+		foreach NumFiles
+		{ (296d (128h) byte each FileEntry)
+			[CHAR]  fileName[260];
+			[BYTE]  storeInfo;
+			[BYTE]  volumeIndex;
+			[DWORD] offset;
+			[DWORD] realsize;
+			[DWORD] csize;
+			[DWORD] crc32;
+			[DWORD] unk2;
+			[DWORD] unk3;
+			[BYTE]  unk4[10];
+		}
+	}
+}

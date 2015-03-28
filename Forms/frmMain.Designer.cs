@@ -467,7 +467,7 @@
             this.Controls.Add(this.ms_mainMenu);
             this.MainMenuStrip = this.ms_mainMenu;
             this.Name = "frmMain";
-            this.Text = "BIN-Editor - alpha-SVN-14 - florian0 for StageTwo";
+            this.Text = "r3dFS Explorer - florian0 for StageTwo";
             this.ms_mainMenu.ResumeLayout(false);
             this.ms_mainMenu.PerformLayout();
             this.ss_mainStatus.ResumeLayout(false);

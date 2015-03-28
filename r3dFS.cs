@@ -190,8 +190,8 @@ namespace BIN_Editor.r3d
             FileStream fs = new FileStream(Path.Combine(_basePath, _prefix + "_0" + volumeId.ToString() + ".bin"), FileMode.Open);
 
             // Create OutFile
-            Directory.CreateDirectory("out/" + file.Path );
-            FileStream outfs = new FileStream("out/" + file.FullPath, FileMode.Create);
+			Directory.CreateDirectory("out" + Path.DirectorySeparatorChar + file.Path.Replace('\\', Path.DirectorySeparatorChar ));
+			FileStream outfs = new FileStream("out" + Path.DirectorySeparatorChar + file.FullPath.Replace('\\', Path.DirectorySeparatorChar ), FileMode.Create);
             
 
             // Move FilePointer along

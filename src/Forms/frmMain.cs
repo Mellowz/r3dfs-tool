@@ -140,6 +140,8 @@ namespace BIN_Editor
             // Get CurrentFolder-Object
             Folder currentFolder = fs.GetFolderFromPath(e.Node.FullPath);
 
+			lv_files.BeginUpdate ();
+
             // Add Files in Folder to ListView
             foreach (BIN_Editor.r3d.File file in currentFolder.Files)
             {
@@ -156,6 +158,8 @@ namespace BIN_Editor
 
                 lv_files.Items.Add(item);
             }
+
+			lv_files.EndUpdate ();
 
             lv_files.Visible = true;
         }

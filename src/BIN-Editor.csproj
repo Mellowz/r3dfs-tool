@@ -10,9 +10,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BIN_Editor</RootNamespace>
     <AssemblyName>BIN-Editor</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <StartupObject>BIN_Editor.Program</StartupObject>
   </PropertyGroup>
@@ -52,44 +49,17 @@
     <Compile Include="CRC32.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Folder.cs" />
-    <Compile Include="Forms\frmExtract.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmExtract.Designer.cs">
-      <DependentUpon>frmExtract.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmOverwrite.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmOverwrite.Designer.cs">
-      <DependentUpon>frmOverwrite.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmSearch.Designer.cs">
-      <DependentUpon>frmSearch.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="r3dFS.cs" />
-    <EmbeddedResource Include="Forms\frmExtract.resx">
-      <DependentUpon>frmExtract.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmOverwrite.resx">
-      <DependentUpon>frmOverwrite.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSearch.resx">
-      <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

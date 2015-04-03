@@ -2,16 +2,16 @@
 
 namespace BIN_Editor.r3d
 {
-    public class File
-    {
-        FileEntry innerFileEntry;
+	public class File
+	{
+		FileEntry innerFileEntry;
 
-        string fileName;
-        StoreInfo storeInfo;
-        string path;
+		string fileName;
+		StoreInfo storeInfo;
+		string path;
 		string fullPath;
 
-        public File (FileEntry file)
+		public File (FileEntry file)
 		{
 			innerFileEntry = file;
 			
@@ -23,66 +23,66 @@ namespace BIN_Editor.r3d
 			
 			path = System.IO.Path.GetDirectoryName (fullPath);
 			fileName = System.IO.Path.GetFileName (fullPath);
-            
-            switch (file.storeInfo)
-            {
-                case 1:
-                    storeInfo = StoreInfo.NOT_COMPRESSED;
-                    break;
-                case 2:
-                    storeInfo = StoreInfo.COMPRESSED;
-                    break;
+			
+			switch (file.storeInfo)
+			{
+				case 1:
+					storeInfo = StoreInfo.NOT_COMPRESSED;
+					break;
+				case 2:
+					storeInfo = StoreInfo.COMPRESSED;
+					break;
 
-                default:
-                    storeInfo = StoreInfo.UNKNOWN;
-                    break;
-            }
-        }
+				default:
+					storeInfo = StoreInfo.UNKNOWN;
+					break;
+			}
+		}
 
-        public string Name
-        {
-            get { return fileName; }
-        }
+		public string Name
+		{
+			get { return fileName; }
+		}
 
-        public string Path
-        {
-            get { return path; }
-        }
+		public string Path
+		{
+			get { return path; }
+		}
 
-        public string OriginalPath
-        {
-            get { return innerFileEntry.filePath; }
-        }
+		public string OriginalPath
+		{
+			get { return innerFileEntry.filePath; }
+		}
 
-        public int CRC32
-        {
-            get { return innerFileEntry.crc32; }
-        }
+		public int CRC32
+		{
+			get { return innerFileEntry.crc32; }
+		}
 
-        public int RealSize
-        {
-            get { return innerFileEntry.realsize; }
-        }
+		public int RealSize
+		{
+			get { return innerFileEntry.realsize; }
+		}
 
-        public int CompressedSize
-        {
-            get { return innerFileEntry.csize; }
-        }
+		public int CompressedSize
+		{
+			get { return innerFileEntry.csize; }
+		}
 
-        public int Offset
-        {
-            get { return innerFileEntry.offset; }
-        }
+		public int Offset
+		{
+			get { return innerFileEntry.offset; }
+		}
 
-        public byte VolumeIndex
-        {
-            get { return innerFileEntry.volumeIndex; }
-        }
+		public byte VolumeIndex
+		{
+			get { return innerFileEntry.volumeIndex; }
+		}
 
-        public StoreInfo StoreInfo
-        {
-            get { return storeInfo; }
-        }
+		public StoreInfo StoreInfo
+		{
+			get { return storeInfo; }
+		}
 
-    }
+	}
 }

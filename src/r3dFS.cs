@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -180,18 +180,22 @@ namespace BIN_Editor.r3d
 
         public void ExtractFile(File file)
         {
-            Console.Write("Extracting File: {0} {1}B {2} ", file.FullPath, file.CompressedSize, file.StoreInfo.ToString());
+            Console.Write("Extracting File: {0} {1}B {2} ", file.OriginalPath, file.CompressedSize, file.StoreInfo.ToString());
             // Add 4 Byte to Size for magic
             int size = file.CompressedSize;
             int volumeId = file.VolumeIndex + 1;
+			
+			
+			string targetFilename = file.Path + Path.DirectorySeparatorChar + file.Name;
 
+			
             #region Open File
             // Open Volume
             FileStream fs = new FileStream(Path.Combine(_basePath, _prefix + "_0" + volumeId.ToString() + ".bin"), FileMode.Open);
 
             // Create OutFile
-			Directory.CreateDirectory("out" + Path.DirectorySeparatorChar + file.Path.Replace('\\', Path.DirectorySeparatorChar ));
-			FileStream outfs = new FileStream("out" + Path.DirectorySeparatorChar + file.FullPath.Replace('\\', Path.DirectorySeparatorChar ), FileMode.Create);
+			Directory.CreateDirectory(file.Path);
+			FileStream outfs = new FileStream(targetFilename, FileMode.Create);
             
 
             // Move FilePointer along
@@ -241,7 +245,7 @@ namespace BIN_Editor.r3d
                     CopyStream(fs, outfs, size);
                 }
 
-                int CRC = (int)_crc.GetCRC32FromFile("out/" + file.FullPath);
+                int CRC = (int)_crc.GetCRC32FromFile(targetFilename);
 
                 if (CRC == file.CRC32)
                 {

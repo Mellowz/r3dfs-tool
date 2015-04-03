@@ -1,97 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BIN_Editor.r3d
 {
     public class File
     {
-        FileEntry _file;
+        FileEntry innerFileEntry;
 
-        string _filename;
-        StoreInfo _storeInfo;
+        string fileName;
+        StoreInfo storeInfo;
+        string path;
+		string fullPath;
 
-
-        string _path = "";
-        string[] _pathar;
-
-        public File(FileEntry file)
-        {
-            _file = file;
-            _pathar = file.filePath.Split(new char[] { '\\'});
-
-            for (int i = 0; i < _pathar.Length - 1; i++)
-            {
-                _path += _pathar[i] + "/";
-            }
-
-            _filename = _pathar[_pathar.Length - 1];
-
+        public File (FileEntry file)
+		{
+			innerFileEntry = file;
+			
+			// Since the path comes with microsoft-style separators, this will break
+			// any non-microsoft operating system
+			// Better replace them with the correct separator for the current OS
+			fullPath = file.filePath.Replace ('\\', System.IO.Path.DirectorySeparatorChar);
+			
+			
+			path = System.IO.Path.GetDirectoryName (fullPath);
+			fileName = System.IO.Path.GetFileName (fullPath);
+            
             switch (file.storeInfo)
             {
                 case 1:
-                    _storeInfo = StoreInfo.NOT_COMPRESSED;
+                    storeInfo = StoreInfo.NOT_COMPRESSED;
                     break;
                 case 2:
-                    _storeInfo = StoreInfo.COMPRESSED;
+                    storeInfo = StoreInfo.COMPRESSED;
                     break;
 
                 default:
-                    _storeInfo = StoreInfo.UNKNOWN;
+                    storeInfo = StoreInfo.UNKNOWN;
                     break;
             }
-
         }
 
         public string Name
         {
-            get { return _filename; }
+            get { return fileName; }
         }
 
         public string Path
         {
-            get { return _path; }
+            get { return path; }
         }
 
-        public string FullPath
+        public string OriginalPath
         {
-            get { return _file.filePath; }
-        }
-
-        public string[] PathArray
-        {
-            get { return _pathar; }
+            get { return innerFileEntry.filePath; }
         }
 
         public int CRC32
         {
-            get { return _file.crc32; }
+            get { return innerFileEntry.crc32; }
         }
 
         public int RealSize
         {
-            get { return _file.realsize; }
+            get { return innerFileEntry.realsize; }
         }
 
         public int CompressedSize
         {
-            get { return _file.csize; }
+            get { return innerFileEntry.csize; }
         }
 
         public int Offset
         {
-            get { return _file.offset; }
+            get { return innerFileEntry.offset; }
         }
 
         public byte VolumeIndex
         {
-            get { return _file.volumeIndex; }
+            get { return innerFileEntry.volumeIndex; }
         }
 
         public StoreInfo StoreInfo
         {
-            get { return _storeInfo; }
+            get { return storeInfo; }
         }
 
     }

@@ -78,7 +78,7 @@
             this.txt_currentPath = new System.Windows.Forms.TextBox();
             this.ms_mainMenu.SuspendLayout();
             this.ss_mainStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -474,7 +474,7 @@
             this.ss_mainStatus.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.cmenu_folders.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

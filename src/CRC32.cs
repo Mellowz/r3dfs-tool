@@ -45,7 +45,7 @@ namespace BIN_Editor
             //4KB Buffer
             BufferSize = 0x1000;
 
-            FileStream fs = new FileStream(FileName, FileMode.Open);
+            FileStream fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
             StreamLength = fs.Length;
 
             CRC = 0xFFFFFFFF;

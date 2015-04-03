@@ -131,9 +131,6 @@ namespace BIN_Editor
             // Make CurrentPath visible in textBox
             txt_currentPath.Text = e.Node.FullPath;
 
-            // Hide listView to increase performance
-            lv_files.Visible = false;
-
             // Remove all items
             lv_files.Items.Clear();
 
@@ -161,7 +158,6 @@ namespace BIN_Editor
 
 			lv_files.EndUpdate ();
 
-            lv_files.Visible = true;
         }
 
         private void closeBINFiles_Click(object sender, EventArgs e)
